@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class Logger
- * @package CapybaraOnsen\log
+ * @package CapybaraOnsen\Log
  * @author Masaru Yamagishi <akai_inu@live.jp>
  * @license Apache-2.0
  */
@@ -35,6 +37,22 @@ enum RFC5424LogLevel: int
     case INFO = 6;
     /** Debug: debug-level messages */
     case DEBUG = 7;
+
+    /**
+     * Get RFC 5424 log level from mixed
+     * @param mixed $level
+     * @return RFC5424LogLevel
+     */
+    public static function fromMixed(mixed $level): self
+    {
+        if (\is_int($level)) {
+            return self::from($level);
+        }
+        if (\is_string($level)) {
+            return self::fromString($level);
+        }
+        throw new \InvalidArgumentException("Invalid log level: " . \print_r($level, true));
+    }
 
     /**
      * Get RFC 5424 log level from string

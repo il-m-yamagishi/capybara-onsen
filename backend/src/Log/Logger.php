@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class Logger
- * @package CapybaraOnsen\log
+ * @package CapybaraOnsen\Log
  * @author Masaru Yamagishi <akai_inu@live.jp>
  * @license Apache-2.0
  */
@@ -57,6 +59,7 @@ class Logger extends AbstractLogger
             throw new \RuntimeException("Logger instance is not set");
         }
 
+        // @phpstan-ignore-next-line
         return static::$global_instance;
     }
 
@@ -71,9 +74,12 @@ class Logger extends AbstractLogger
 
     /**
      * {@inheritDoc}
+     * @param array<array-key, mixed> $context
      */
-    public function log($level, string|Stringable $message, array $context = []): void
+    public function log(mixed $level, string|Stringable $message, array $context = []): void
     {
-        // TODO
+        foreach ($this->writers as $writer) {
+            $writer->write(RFC5424LogLevel::fromMixed($level), (string)$message, $context);
+        }
     }
 }

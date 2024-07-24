@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class Logger
- * @package CapybaraOnsen\log
+ * @package CapybaraOnsen\Log
  * @author Masaru Yamagishi <akai_inu@live.jp>
  * @license Apache-2.0
  */
@@ -18,7 +20,7 @@ interface WriterInterface
      * Write log message
      * @param RFC5424LogLevel $logLevel log level
      * @param string $message Message line
-     * @param array $context Message context
+     * @param array<array-key, mixed> $context Message context
      * @return void
      */
     function write(RFC5424LogLevel $logLevel, string $message, array $context): void;

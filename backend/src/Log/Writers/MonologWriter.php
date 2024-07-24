@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class Logger
- * @package CapybaraOnsen\log
+ * @package CapybaraOnsen\Log\Writers
  * @author Masaru Yamagishi <akai_inu@live.jp>
  * @license Apache-2.0
  */
@@ -16,6 +18,7 @@ use Monolog\Logger;
 
 /**
  * Use monolog/monolog as writer
+ * @see https://github.com/Seldaek/monolog/
  *
  * ```php
  * $logger = new \Monolog\Logger('appname');
@@ -50,15 +53,15 @@ class MonologWriter implements WriterInterface
 
     private function convertLogLevel(RFC5424LogLevel $logLevel): Level
     {
-        return match ($logLevel) => {
-            self::EMERGENCY => Level::Emergency,
-            self::ALERT => Level::Alert,
-            self::CRITICAL => Level::Critical,
-            self::ERROR => Level::Error,
-            self::WARNING => Level::Warning,
-            self::NOTICE => Level::Notice,
-            self::INFO => Level::Info,
-            self::DEBUG => Level::Debug,
-        }
+        return match ($logLevel) {
+            RFC5424LogLevel::EMERGENCY => Level::Emergency,
+            RFC5424LogLevel::ALERT => Level::Alert,
+            RFC5424LogLevel::CRITICAL => Level::Critical,
+            RFC5424LogLevel::ERROR => Level::Error,
+            RFC5424LogLevel::WARNING => Level::Warning,
+            RFC5424LogLevel::NOTICE => Level::Notice,
+            RFC5424LogLevel::INFO => Level::Info,
+            RFC5424LogLevel::DEBUG => Level::Debug,
+        };
     }
 }
