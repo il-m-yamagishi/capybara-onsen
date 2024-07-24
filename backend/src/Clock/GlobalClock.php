@@ -62,10 +62,10 @@ class GlobalClock implements ClockInterface
 
     /**
      * Get global static-variable Clock
-     * @return ClockInterface
+     * @return GlobalClock
      * @throws RuntimeException when global clock is not set
      */
-    public static function getGlobalClock(): ClockInterface
+    public static function getGlobalClock(): GlobalClock
     {
         if (static::$global_instance === null) {
             throw new RuntimeException("Global clock is not set");
