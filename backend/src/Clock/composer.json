@@ -1,0 +1,63 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "capybara-onsen/clock",
+    "description": "Capybara Onsen PHP Framework- Clock",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": [
+        "clock",
+        "time",
+        "psr20"
+    ],
+    "homepage": "https://cafe-capy.net/capybara-onsen/",
+    "readme": "README.md",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Masaru Yamagishi",
+            "email": "akai_inu@live.jp",
+            "homepage": "https://cafe-capy.net",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "docs": "https://cafe-capy.net/capybara-onsen/",
+        "issues": "https://github.com/il-m-yamagishi/capybara-onsen/issues",
+        "source": "https://github.com/il-m-yamagishi/capybara-onsen/"
+    },
+    "provide": {
+        "psr/clock-implementation": "1.0"
+    },
+    "require": {
+        "php": "~8.1.0|~8.2.0|~8.3.0",
+        "psr/clock": "^1.0.0"
+    },
+    "require-dev": {
+        "cakephp/chronos": "^3.1.0",
+        "nesbot/carbon": "^3.7.0",
+        "phpunit/phpunit": "^11.2.8"
+    },
+    "suggest": {
+        "nesbot/carbon": "To use Carbon\\CarbonImmutable wrapper",
+        "cakephp/chronos": "To use Chronos\\Chronos wrapper"
+    },
+    "autoload": {
+        "psr-4": {
+            "CapybaraOnsen\\Clock\\": ""
+        },
+        "files": [
+            "functions.php"
+        ],
+        "exclude-from-classmap": [
+            "*Test.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit *Test.php"
+    },
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

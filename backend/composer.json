@@ -1,0 +1,52 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "capybara-onsen/framework",
+    "description": "Capybara Onsen PHP Framework",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": [
+        "framework"
+    ],
+    "homepage": "https://cafe-capy.net/capybara-onsen/",
+    "readme": "README.md",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Masaru Yamagishi",
+            "email": "akai_inu@live.jp",
+            "homepage": "https://cafe-capy.net",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "docs": "https://cafe-capy.net/capybara-onsen/",
+        "issues": "https://github.com/il-m-yamagishi/capybara-onsen/issues",
+        "source": "https://github.com/il-m-yamagishi/capybara-onsen/"
+    },
+    "require": {
+        "php": "~8.1.0|~8.2.0|~8.3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.11.7",
+        "phpunit/phpunit": "^11.2.8"
+    },
+    "replace": {
+        "capybara-onsen/clock": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "CapybaraOnsen\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "*Test.php"
+        ]
+    },
+    "scripts": {
+        "lint": "phpstan analyse src"
+    },
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
