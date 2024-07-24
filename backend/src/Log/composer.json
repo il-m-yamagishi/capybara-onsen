@@ -1,11 +1,12 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "capybara-onsen/framework",
-    "description": "Capybara Onsen PHP Framework",
+    "name": "capybara-onsen/log",
+    "description": "Capybara Onsen PHP Framework- Log Component",
     "version": "0.0.1",
     "type": "library",
     "keywords": [
-        "framework"
+        "log",
+        "psr3"
     ],
     "homepage": "https://cafe-capy.net/capybara-onsen/",
     "readme": "README.md",
@@ -23,27 +24,30 @@
         "issues": "https://github.com/il-m-yamagishi/capybara-onsen/issues",
         "source": "https://github.com/il-m-yamagishi/capybara-onsen/"
     },
+    "provide": {
+        "psr/log-implementation": "3.0.0"
+    },
     "require": {
-        "php": "~8.1.0|~8.2.0|~8.3.0"
+        "php": "~8.1.0|~8.2.0|~8.3.0",
+        "psr/log": "^2.0.0|^3.0.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.11.7",
+        "monolog/monolog": "^3.7.0",
         "phpunit/phpunit": "^11.2.8"
     },
-    "replace": {
-        "capybara-onsen/clock": "self.version",
-        "capybara-onsen/log": "self.version"
+    "suggest": {
+        "monolog/monolog": "^3.0 To use MonologWriter"
     },
     "autoload": {
         "psr-4": {
-            "CapybaraOnsen\\": "src/"
+            "CapybaraOnsen\\Log\\": ""
         },
         "exclude-from-classmap": [
             "*Test.php"
         ]
     },
     "scripts": {
-        "lint": "phpstan analyse src"
+        "test": "phpunit *Test.php"
     },
     "prefer-stable": true,
     "config": {

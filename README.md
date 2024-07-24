@@ -1,5 +1,7 @@
 # Capybara Onsen Framework
 
+> Be simpler. Be shorter.
+
 ## CapybaraOnsen PHP Backend Framework
 
 - PHP 8.1.0+
