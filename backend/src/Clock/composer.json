@@ -38,8 +38,8 @@
         "phpunit/phpunit": "^11.2.8"
     },
     "suggest": {
-        "nesbot/carbon": "To use Carbon\\CarbonImmutable wrapper",
-        "cakephp/chronos": "To use Chronos\\Chronos wrapper"
+        "nesbot/carbon": "^3.0 To use Carbon\\CarbonImmutable wrapper",
+        "cakephp/chronos": "^3.0 To use Chronos\\Chronos wrapper"
     },
     "autoload": {
         "psr-4": {

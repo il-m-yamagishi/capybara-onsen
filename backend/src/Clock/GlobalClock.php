@@ -16,6 +16,19 @@ use RuntimeException;
 
 /**
  * Represents customized global time
+ * Suitable for request-scoped time or testing
+ *
+ * ```php
+ * // You can fix request time in HTTP middleware
+ * GlobalClock::setGlobalClock(new \DateTimeImmutable("now"));
+ *
+ * $response = $next($request);
+ *
+ * // Clear global time for the rest of process
+ * GlobalClock::clearGlobalClock();
+ *
+ * return $response;
+ * ```
  */
 class GlobalClock implements ClockInterface
 {
@@ -31,6 +44,13 @@ class GlobalClock implements ClockInterface
         static::$global_instance = $this;
     }
 
+    /**
+     * Set global static-variable Clock
+     * @param ClockInterface $instance    Clock instance(You can use SystemClock or \DateTimeImmutable or else)
+     * @param DateTimeZone|null $timezone You can specify timezone
+     * @param bool|null $force            Overwrite global clock
+     * @return void
+     */
     public static function setGlobalClock(ClockInterface $instance, ?DateTimeZone $timezone = null, ?bool $force = false): void
     {
         if ($force === false && static::$global_instance !== null) {
@@ -40,6 +60,11 @@ class GlobalClock implements ClockInterface
         static::$global_instance = new GlobalClock($instance, $timezone);
     }
 
+    /**
+     * Get global static-variable Clock
+     * @return ClockInterface
+     * @throws RuntimeException when global clock is not set
+     */
     public static function getGlobalClock(): ClockInterface
     {
         if (static::$global_instance === null) {
@@ -49,6 +74,10 @@ class GlobalClock implements ClockInterface
         return static::$global_instance;
     }
 
+    /**
+     * Clear global static-variable Clock
+     * @return void
+     */
     public static function clearGlobalClock(): void
     {
         static::$global_instance = null;
