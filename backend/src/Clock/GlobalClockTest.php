@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class ClockTest
@@ -33,7 +35,8 @@ final class GlobalClockTest extends TestCase
     #[Test]
     public final function testSetGlobalClock(): void
     {
-        $clock = new class implements ClockInterface {
+        $clock = new class implements ClockInterface
+        {
             public function now(): DateTimeImmutable
             {
                 return new DateTimeImmutable("2021-01-01 00:00:00");
@@ -48,7 +51,8 @@ final class GlobalClockTest extends TestCase
     #[Test]
     public final function testSetGlobalClockWithTimezone(): void
     {
-        $clock = new class implements ClockInterface {
+        $clock = new class implements ClockInterface
+        {
             public function now(): DateTimeImmutable
             {
                 return new DateTimeImmutable("2021-01-01 00:00:00");
@@ -64,7 +68,8 @@ final class GlobalClockTest extends TestCase
     #[Test]
     public final function testSetGlobalClockWithNotForce(): void
     {
-        $clock = new class implements ClockInterface {
+        $clock = new class implements ClockInterface
+        {
             public function now(): DateTimeImmutable
             {
                 return new DateTimeImmutable("2021-01-01 00:00:00");

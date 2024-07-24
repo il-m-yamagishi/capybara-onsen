@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class AsChronosTraitTest
@@ -22,7 +24,8 @@ final class AsChronosTraitTest extends TestCase
     #[Test]
     public function testAsChronos(): void
     {
-        $clock = new class implements ClockInterface {
+        $clock = new class implements ClockInterface
+        {
             use AsChronosTrait;
 
             public function now(): DateTimeImmutable

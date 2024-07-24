@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Class AsCarbonImmutableTraitTest
@@ -22,7 +24,8 @@ final class AsCarbonImmutableTraitTest extends TestCase
     #[Test]
     public function testAsCarbonImmutable(): void
     {
-        $clock = new class implements ClockInterface {
+        $clock = new class implements ClockInterface
+        {
             use AsCarbonImmutableTrait;
 
             public function now(): DateTimeImmutable
