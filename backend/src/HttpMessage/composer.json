@@ -1,0 +1,54 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "capybara-onsen/http",
+    "description": "Capybara Onsen PHP Framework- HTTP Message Component",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": [
+        "http",
+        "psr7"
+    ],
+    "homepage": "https://cafe-capy.net/capybara-onsen/",
+    "readme": "README.md",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Masaru Yamagishi",
+            "email": "akai_inu@live.jp",
+            "homepage": "https://cafe-capy.net",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "docs": "https://cafe-capy.net/capybara-onsen/",
+        "issues": "https://github.com/il-m-yamagishi/capybara-onsen/issues",
+        "source": "https://github.com/il-m-yamagishi/capybara-onsen/"
+    },
+    "provide": {
+        "psr/http-message-implementation": "2.0"
+    },
+    "require": {
+        "php": "~8.1.0|~8.2.0|~8.3.0",
+        "psr/http-message": "^2.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.2.8"
+    },
+    "suggest": {},
+    "autoload": {
+        "psr-4": {
+            "CapybaraOnsen\\HttpMessage\\": ""
+        },
+        "exclude-from-classmap": [
+            "*Test.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit *Test.php"
+    },
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
